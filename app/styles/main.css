@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  margin: 0;
 }
 
 .header,
@@ -33,6 +34,9 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.navbar li {
+  display: inline-block;
+}
 
 /* TODO: Guys, put your relavant media queries here */
 @media screen and (min-width: 768px) {
