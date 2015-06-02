@@ -1,0 +1,105 @@
+
+.taskAdd {
+    background: #C2E0FF;
+    padding-left: 15px;
+}
+
+.taskAdd:hover {
+    background: #303030;
+}
+
+.taskDelete {
+    background: #C2E0FF;
+    padding-left: 30px;
+}
+
+.taskDelete:hover {
+    background: #c0392b;
+}
+
+.toDoList {
+	color: #000000;
+    list-style: none;
+    padding: 0 20px;
+}
+
+.toDoItem {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px 0;
+    color: #777;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.taskList .taskItem:nth-child(even) {
+    background: #fcfcfc;
+}
+
+.taskCheckbox {
+    margin-right: 1em;
+}
+
+.complete-true {
+    text-decoration:  line-through;
+    color: #bebebe;
+}
+
+.taskList .taskDate {
+    color: #95a5a6;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-left: 41px;
+}
+
+.fa-calendar {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+
+
+.taskCheckbox {
+    -webkit-appearance: none;
+            appearance: none;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+.taskCheckbox:focus {
+    outline: none;
+}
+
+.taskCheckbox:before, .taskCheckbox:checked:before {
+    font-family: 'FontAwesome';
+    color: #444;
+    font-size: 20px;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+
+}
+
+.taskCheckbox:before {
+    content: '\f096';
+}
+
+.taskCheckbox:checked:before {
+    content: '\f14a';
+    color: #16a085;
+}
+.selectArrow {
+    position: absolute;
+    z-index: 10;
+    top: 35%;
+    right: 0;
+    margin-right: 20px;
+    color: #777;
+    pointer-events: none;
+}

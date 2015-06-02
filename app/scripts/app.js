@@ -23,12 +23,24 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/tasks/', {
+        templateUrl: 'views/tasks.html',
+        controller: 'TasksCtrl'
+      })
+      .when('/tasks/{date}', {
+        templateUrl: 'views/tasks.html',
+        controller: 'TasksCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
+        controller: ''
+      })
+      .when('/new', {
+        templateUrl: 'views/add.html',
         controller: ''
       })
       .otherwise({

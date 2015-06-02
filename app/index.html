@@ -10,27 +10,31 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Arimo|Roboto+Slab' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
   <body ng-app="Todoer">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
 		 <div class="navbar-header">
-
 		   <a class="navbar-brand" href="#/">Todoer</a>
+		   <ul class="sub-menu">
+			   <li><a href="#/">Home</a></li>
+			   <li><a ng-href="#/about" href="#/about">About</a></li>
+			   <li><a ng-href="#/contact" href="#/contact">Contact</a></li>
+		   </ul>
 		 </div>
 
 		 <div class="collapse">
 		 
 		  <ul class="nav navbar-nav">
-			 <li class="active"><a href="#/">Home</a></li>
-			 <li><a ng-href="#/about">About</a></li>
-			 <li><a ng-href="#/contact">Contact</a></li>
+			 
+			 <li><a href="#/new">Add</a></li>
+			 <li><a ng-href="#/tasks/" href="#/tasks/">Today</a></li>
 		  </ul>
 		 </div>
       </div>
@@ -53,7 +57,6 @@
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
@@ -76,6 +79,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/tasks.js"></script>
         <!-- endbuild -->
 </body>
 </html>
+
