@@ -1,45 +1,9 @@
- <style type="text/css">
-    #customBtn {
-      display: inline-block;
-      background: #dd4b39;
-      color: white;
-      width: 60px;
-      border-radius: 5px;
-      white-space: nowrap;
-    }
-    #customBtn:hover {
-      background:  #CC0000 transparent 5px 50% no-repeat;
-      cursor: hand;
-    }
-    span.label {
-      font-weight: bold;
-    }
-    span.icon {
-      background: url('../images/Red-signinbase.png') transparent 5px 50% no-repeat;
-      display: inline-block;
-      vertical-align: middle;
-      width: 60px;
-      height: 50px;
-      border-right: #bb3f30 1px solid;
-    }
-    span.buttonText {
-      display: inline-block;
-      vertical-align: middle;
-      padding-left: 35px;
-      padding-right: 35px;
-      font-size: 14px;
-      font-weight: bold;
-      /* Use the Roboto font that is loaded in the <head> */
-      font-family: 'Roboto',arial,sans-serif;
-    }
-  </style>
-
 input:required {
   border: 1px solid red;
 }
 html {
-    background: url('../images/Home_Background.jpg');
-    font-size: 10pt;
+    background: url('http://subtlepatterns.com/patterns/kindajean.png');
+    font-family: 'Arimo', sans-serif;
 }
 
 .loginform ul {
@@ -112,6 +76,9 @@ label {
 
 body {
   padding: 0;
+  margin: 0;
+  padding-top: 48px;
+  perspective: 800px;
 }
 
 .body {
@@ -140,13 +107,18 @@ body {
 }
 
 .footer {
-  padding-top: 19px;
+  padding: 10px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar li {
+  display: inline-block;
 }
 
 
-
+<<<<<<< HEAD
 
 
 
@@ -315,3 +287,121 @@ h1 {
  
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
+=======
+  .container {
+   
+  }
+  
+  .header,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+}
+
+#wrap {
+  width: 100%; /* Spans the width of the page */
+  height: 50px; 
+  margin: 0; /* Ensures there is no space between sides of the screen and the menu */
+  z-index: 99; /* Makes sure that your menu remains on top of other page elements */
+  position: relative; 
+  background-color: #366b82;
+  }
+
+.navbar  {
+  padding: 0;
+  margin: 0;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  background-color: #222222;
+  width: 100%;
+}
+.navbar-header  {
+  float: left;
+  padding: 15px;
+}
+.collapse{
+	padding: 15px;
+	float: right;
+}
+.collapse ul{
+	margin: 0;
+}
+.navbar  a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 3px;
+}
+.task-card{
+  border: 1px solid #A9A9A9;
+  background: #fff;
+  margin: 10px 1%;
+  padding: 10px 2%;
+  display: inline-block;
+  border-radius: 2px;
+  width: 100%;
+  max-width: 336px;
+  cursor: pointer;
+  vertical-align: top;
+  box-shadow: 3px 3px 0px 0px rgba(52, 52, 52, 0.12);
+    
+}
+.task-card h2{
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+}
+@media screen and (max-width: 780px) {
+	.task-card{
+	  max-width: 90%;
+	}
+}
+.task-card hr{
+  border: none;
+  border-bottom: 1px solid #aaa;
+}
+#tasks{
+  text-align:center;
+}
+.sub-menu{
+  position: absolute;
+  background: #fbfbfb;
+  border: 1px solid #CCC;
+  position: absolute;
+  background: #ffffff;
+  margin: 15px 0px;
+  padding: 10px;
+  margin:15px;
+  padding:0;
+  width: 200px;
+  border-bottom: none;
+  display: none;
+}
+.sub-menu li{
+  display: block;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 10px
+}
+.sub-menu li a{
+  color: #333;
+}
+
+/* ngAnimations*/
+.ng-leave .task-card{
+  transition:0.5s linear all;
+  opacity:0;
+  background: #000;
+}
+
+.ng-leave.ng-leave-active .task-card{
+  opacity:1;
+  background: #000;
+}
+>>>>>>> a93670955aacf091e7287b4f01626623ea2c28e9
