@@ -1,162 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add ToDos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="add.css" type="text/css"/>
+        <link rel="stylesheet" href="media_queries.css" type="text/css"/>
+        <link href="http://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+    </head>
 
-<html lang="en">
-<head>
-		<title>ToDo App</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/style.css" />
-		<link href="http://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-	</head>
+    <body>
+        <!--<div id="css-script-menu">
+            <div class="css-script-clear"></div>
+          </div>
+        </div>-->
+        <div ng-app="TaskManager" style="margin-top:150px;">
+            <div class="container">
+                <div class="content" ng-controller="taskController">
+                    <h1>Add ToDos</h1>
+                    <p class="tagline">Use this to track your daily tasks</p>
+                    <form>
+                        <div class="inputContainer">
+                            <input type="text" id="title" class="taskName" placeholder="A short reminder" ng-model="newTask">
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="inputContainer">
+                            <input type="text" id="description" class="taskDesc" placeholder="What do you need to do?" ng-model="newTaskDesc">
+                            <label for="description">Description</label>
+                        </div>
+                        <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
+                            <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                                <option class="disabled" value="">Choose a category</option>
+                            </select>
+                            <label for="category">Category</label>
+                        </div>
+                        <div class="inputContainer half last right">
+                            <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                            <label for="dueDate">Due Date</label>
+                        </div>
+                        <div class="row">
+                            <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i>Add task</button>
+                            <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                        </div>
+                    </form>
+                    <ul  class="taskList">
+                            <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem">
+                            <input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                            <span class="complete-{{taskItem.complete}}">{{taskItem.title}}</span> <span class="category-{{taskItem.category}}">{{taskItem.category}}</span> <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date| date : 'mediumDate'}}</strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		<div>
+		<footer>K.J.S. Fernando 12000434</footer>
+		</div>
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
+        <script>
+        //Define angular app
+                      var app = angular.module('TaskManager', []);
 
-<body>
-<!--<div class="ring"><TODO APP</div>
-<script>localStorage.clear();</script>-->
-			<section id="header">
-				<div class="inner">
-					<span class="icon major fa-calendar "></span>
-					<h1>Welcome to the add tasks page of the TODO APP</h1>
-					<p>Here you can add tasks to your todo list.</p>
-					<ul class="actions">
-						<li><a href="#one" class="button scrolly">Continue</a></li>
-					</ul>
-				</div>
-			</section>
+        //controllers
+                      app.controller('taskController', function($scope) {
+                          $scope.today = new Date();
+                          $scope.saved = localStorage.getItem('taskItems');
+                          $scope.taskItem = (localStorage.getItem('taskItems') !== null) ?
+                                  JSON.parse($scope.saved) : [{title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, complete: false}];
+                          localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+                          
+                          $scope.newTask = null;
+                          $scope.newTaskDesc = null;
+                          $scope.newTaskDate = null;
+                          $scope.categories = [
+                              {name: 'Personal'},
+                              {name: 'Work'},
+                              {name: 'School'},
+                              {name: 'Cleaning'},
+                              {name: 'Other'}
+                          ];
+                          $scope.newTaskCategory = $scope.categories;
+                          $scope.addNew = function() {
+                              if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
+                                  $scope.taskItem.push({
+                                      title: $scope.newTask,
+                                      description: $scope.newTaskDesc,
+                                      date: "No deadline",
+                                      complete: false,
+                                      category: $scope.newTaskCategory.name
+                                  })
+                              } else {
+                                  $scope.taskItem.push({
+                                      title: $scope.newTask,
+                                      description: $scope.newTaskDesc,
+                                      date: $scope.newTaskDate,
+                                      complete: false,
+                                      category: $scope.newTaskCategory.name
+                                  })
+                              }
+                              ;
+                              $scope.newTask = '';
+                              $scope.newTaskDesc = '';
+                              $scope.newTaskDate = '';
+                              $scope.newTaskCategory = $scope.categories;
+                              localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+                          };
+                          $scope.deleteTask = function() {
+                              var completedTask = $scope.taskItem;
+                              $scope.taskItem = [];
+                              angular.forEach(completedTask, function(taskItem) {
+                                  if (!taskItem.complete) {
+                                      $scope.taskItem.push(taskItem);
+                                  }
+                              });
+                              localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+                          };
 
-		<!-- One -->
-			<section id="one" class="main style2 special" style="background :#ffffff;">
-				<div class="container">
-							<header class="major">
-								<h2>ADD TASKS</h2>
-							</header>
-							<div class="todo-wrapper" ng-app="taskMan">
-							<div>
-								<div ng-controller="taskCont">
-								
-								<table>
-								<form>
-								<tr>
-								<td><label>Description : </label></td>
-								<td><input type="text" id="desc" class="taskName" placeholder="What do you have to do?" ng-model="newToDo"></td>
-								</tr>
-								<tr>
-								<td><label>Due date : </label></td>
-								<td><input type="date" id="dueDate" ng-model="newToDoDate"</td>
-								</tr>
-								<tr>
-								<td><button class="taskAdd" ng-click="addToDo()"><i class="fa fa-plus icon"></i>Add Task</button> </td>
-								<td><button class="taskDelete" ng-click="deleteToDo()"><i class="fa fa-trash-o icon"></i>Delete Task</button><td>
-								</tr>
-								</form>
-								</table>
-								<ul class="toDoList" style="text-align: left;">
-								<li class="toDoItem" style="text-align: left;" ng-repeat="toDoItem in toDoItem" ng-model="toDoItem">
-								<input type="checkbox" class="taskCheckbox" ng-model="toDoItem.complete" ng-change="save()">
-								<span style= "color: #000000;" class="complete-{{toDoItem.complete}}">{{toDoItem.desc}}</span> <span class="cat-{{toDoItem.cat}}">{{toDoItem.cat}}</span> <strong class="taskDate complete-{{toDoItem.complete}}"><i class="fa fa-calendar"></i>{{toDoItem.date | date : 'mediumDate'}}</strong> </li>
-								</ul>
-								
-								
-								</div>
-							</div>
-      
-						</div>
-					</div>
-			</section>
-			
-			<section id="three" class="main style1 special" style="background: #D1E0FF;">
-				<div class="container" >
-					<header class="major">
-						<h2>Benefits of Having a ToDo List</h2>
-					</header>
-					<p>Why you should use a ToDo list to organize your life</p>
-					<div class="row 150%">
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>It can be your backup memory!</h3>
-							<p>Your brain is not the most efficient memory tool and will only trust systems that it knows works. Good memory recall is as simple as finding those things that will jog your brain at the time it needs to remember. Having a written list helps us remember when things have do be done so we do not miss anything.</p>
-							<ul class="actions">
-								<li><a href="http://cogsci.stackexchange.com/questions/9940/is-it-actually-helpful-to-write-todo-lists" class="button">More</a></li>
-							</ul>
-						</div>
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-							<h3>A ToDo List helps you track your progress</h3>
-							<p>Using a to-do list enables you to mark off the tasks you have completed. At the end of the day, when you look at the list, it will give you a sense of accomplishment and satisfaction. It might also have the effect of waking you up if nothing has been marked completed.</p>
-							<ul class="actions">
-								<li><a href="http://www.dumblittleman.com/2009/02/7-great-ways-to-track-your-progress.html" class="button">More</a></li>
-							</ul>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<h3>It helps you prioritize</h3>
-							<p>Making a to-do list is an important first step but prioritizing that list ensures that you focus on the most important items rather than giving in to the temptation of working on less important items because they may stand out more or because they are easier to do.This increases productivity. </p>
-							<ul class="actions">
-								<li><a href="http://www.makeuseof.com/tag/3-strike-system-prioritize-list/" class="button">More</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-			<section id="footer">
-			<p>K.J.S. Fernando                         12000434                          2012CS043</p>
-			</section>
-			
-			<script>
-			//Define angular app
-var app = angular.module('taskMan', []); 
-//controllers
-app.controller('taskCont', function($scope) {
-    $scope.today = new Date();
-    $scope.saved = localStorage.getItem('toDoItems');
-    $scope.toDoItem = (localStorage.getItem('toDoItems')!==null) ? 
-    JSON.parse($scope.saved) : [ {desc: "Why not add a task?", date: $scope.today, complete: false}];
-    localStorage.setItem('toDoItems', JSON.stringify($scope.toDoItem));
-    
-    $scope.newToDo = null;
-    $scope.newToDoDate = null;
-    
-    $scope.addToDo = function () {
-        if ($scope.newToDoDate == null || $scope.newToDoDate == '') {
-            $scope.toDoItem.push({
-                desc: $scope.newToDo,
-                date: "No deadline",
-                complete: false
-            }) 
-        } else {
-            $scope.toDoItem.push({
-                desc: $scope.newToDo,
-                date: $scope.newToDoDate,
-                complete: false
-            })
-        };
-        $scope.newToDo = '';
-        $scope.newToDoDate = '';
-        localStorage.setItem('toDoItems', JSON.stringify($scope.toDoItem));
-    };
-    $scope.deleteToDo = function () {
-        var completedTask = $scope.toDoItem;
-        $scope.toDoItem = [];
-        angular.forEach(completedTask, function (toDoItem) {
-            if (!toDoItem.complete) {
-                $scope.toDoItem.push(toDoItem);
-            }
-        });
-        localStorage.setItem('toDoItems', JSON.stringify($scope.toDoItem));
-    };
-    
-    $scope.save = function () {
-        localStorage.setItem('toDoItems', JSON.stringify($scope.toDoItem));
-    }
-});
-</script>
-			</script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-</body>
+                          $scope.save = function() {
+                              localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
+                          }
+                      });
+        </script>
+    </body>
 </html>

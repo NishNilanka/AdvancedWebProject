@@ -1,0 +1,17 @@
+@media screen and (max-width: 980px){
+body{
+	background: #25607D;
+}
+}
+
+@media screen and (max-width: 650px){
+body{
+	background: #00FF00;
+}
+}
+
+@media screen and (max-width: 480px){
+body{
+	background: #FF0066;
+}
+}
