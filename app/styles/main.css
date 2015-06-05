@@ -18,6 +18,11 @@ html {
     
 }
 
+Iframe {
+width: 100%;
+height:auto;
+}
+
 .developer_rotation{
     width: 300px;
     height: 300px;
@@ -432,22 +437,4 @@ html[xmlns] .clearfix { display: block; }
     margin-right: 20px;
     color: #777;
     pointer-events: none;
-}
-/* nsh */
-.search-card{
-  border: 1px solid #A9A9A9;
-  background: #fff;
-  margin: 10px 1%;
-  padding: 10px 2%;
-  display: inline-block;
-  border-radius: 2px;
-  width: 88%;
-  vertical-align: top;
-  box-shadow: 3px 3px 0px 0px rgba(52, 52, 52, 0.12);
-  position: relative;
-  transition:0.5s linear all;
-  opacity:1;
-  -webkit-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-    
 }
