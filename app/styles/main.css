@@ -19,13 +19,25 @@ html {
 }
 
 .developer_rotation{
-   -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-    transition: width 2s;
- }
- 
- .developer hover{ 
- width: 300px;
- }
+    width: 300px;
+    height: 300px;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+    transition: width 2s, height 2s, transform 2s
+
+     }
+.developer_rotation:hover{
+    width: 450px;
+    height: 450px;
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+   transform: scale(1.5);
+}
+
+.developer_rotation img{
+    border-radius: 50%;
+}
+
+
  
  
 #login{
