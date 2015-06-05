@@ -73,7 +73,6 @@ body {
   padding: 0;
   margin: 0;
   padding-top: 48px;
-  perspective: 800px;
 }
 
 .header,
@@ -95,16 +94,23 @@ body {
 }
 
 .footer {
-  padding: 10px;
   color: #777;
   position: absolute;
   bottom: 0;
+}
+
+.footer .container{
+  padding: 5px;
 }
 
 .navbar li {
   display: inline-block;
 }
 
+.main.container{
+	perspective: 1000;
+	transform-style: preserve-3d;
+}
 /* TODO: Guys, put your relavant media queries here */
 @media screen and (min-width: 768px) {
 
@@ -171,12 +177,48 @@ body {
   cursor: pointer;
   vertical-align: top;
   box-shadow: 3px 3px 0px 0px rgba(52, 52, 52, 0.12);
+  position: relative;
+  transition:0.5s linear all;
+  opacity:1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
     
 }
 .task-card h2{
   margin: 0;
   font-family: 'Roboto Slab', serif;
   font-weight: normal;
+}
+.task-card .close-button{
+  top: -1px;
+  right: -1px;
+  display: block;
+  position: absolute;
+  border: 1px solid #B0B0B0;
+  width: 40px;
+  height: 25px;
+  font-weight: bold;
+  line-height: 25px;
+  color: #6F6F6F;
+}
+.task-card .edit-button{
+  top: -1px;
+  right: 40px;
+  display: block;
+  position: absolute;
+  border: 1px solid #B0B0B0;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+  line-height: 25px;
+  color: #6F6F6F;
+}
+.task-card.done{
+	text-decoration: line-through;
+	transition:0.5s linear all;
+	opacity:0.5;
+	-webkit-transform: rotateX(45deg);
+    transform: rotateX(-30deg);
 }
 @media screen and (max-width: 780px) {
 	.task-card{
@@ -224,3 +266,112 @@ body {
   opacity:1;
   background: #000;
 }
+
+/* Add Task Page */
+
+.taskAdd {
+    background: #C2E0FF;
+    padding-left: 15px;
+}
+
+.taskAdd:hover {
+    background: #303030;
+}
+
+.taskDelete {
+    background: #C2E0FF;
+    padding-left: 30px;
+}
+
+.taskDelete:hover {
+    background: #c0392b;
+}
+
+.toDoList {
+	color: #000000;
+    list-style: none;
+    padding: 0 20px;
+}
+
+.toDoItem {
+    border-top: 1px solid #e5e5e5;
+    padding: 15px 0;
+    color: #777;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.taskList .taskItem:nth-child(even) {
+    background: #fcfcfc;
+}
+
+.taskCheckbox {
+    margin-right: 1em;
+}
+
+.complete-true {
+    text-decoration:  line-through;
+    color: #bebebe;
+}
+
+.taskList .taskDate {
+    color: #95a5a6;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-left: 41px;
+}
+
+.fa-calendar {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+
+
+.taskCheckbox {
+    -webkit-appearance: none;
+            appearance: none;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+.taskCheckbox:focus {
+    outline: none;
+}
+
+.taskCheckbox:before, .taskCheckbox:checked:before {
+    font-family: 'FontAwesome';
+    color: #444;
+    font-size: 20px;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+
+}
+
+.taskCheckbox:before {
+    content: '\f096';
+}
+
+.taskCheckbox:checked:before {
+    content: '\f14a';
+    color: #16a085;
+}
+.selectArrow {
+    position: absolute;
+    z-index: 10;
+    top: 35%;
+    right: 0;
+    margin-right: 20px;
+    color: #777;
+    pointer-events: none;
+}
+
+

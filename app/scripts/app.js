@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'cfp.loadingBar'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -46,4 +47,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.latencyThreshold = 0;
+  }]);
