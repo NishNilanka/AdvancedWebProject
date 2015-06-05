@@ -51,4 +51,34 @@ angular
   .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
     cfpLoadingBarProvider.latencyThreshold = 0;
-  }]);
+  }])
+  .value('tasks', [ 
+				{ 	
+					id : 1,
+					title : "Todo one",
+					description: "this is the description of the task one",
+					date: new Date(),
+					done : 0
+				},
+				{ 
+					id: 2,
+					title : "Todo two",
+					description: "this is the description of the task two.this is the description of the task twothis is the description of the task two",
+					date: new Date(),
+					done : 0
+				},
+				{ 
+					id : 3,
+					title : "Todo three",
+					description: "this is the description of the task three",
+					date: new Date(),
+					done : 1
+				},
+				{ 
+					id : 4,
+					title : "Todo four",
+					description: "this is the description of the task four",
+					date: new Date(),
+					done : 0
+				}
+			]);
