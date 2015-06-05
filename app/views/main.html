@@ -2,37 +2,59 @@
 
 <html>
 <head>
-<script src="https://apis.google.com/js/client:platform.js" async defer></script> 
 </head>
-<body>
+<body class = "body">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-  <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer></script>
-
-
-  <div id="gSignInWrapper">
-    <span class="label">Sign in with:</span>
-    <div id="customBtn" class="customGPlusSignIn">
-      <span class="icon"></span>
-    </div>
-  </div>
-<span id="signinButton"> 
-
-</span>
-<section class="loginform cf">
-<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+<span>
+<div id="login">
+	<div class="task-card loginform cf">
+	  <h2>Login</h2>
+	  <hr>
+	  <form name="login" action="index_submit" method="get" accept-charset="utf-8" onSubmit="return validateForm();" >
     <ul>
-        <li><label for="usermail">Email</label>
-        <input type="email" name="usermail" placeholder="yourname@email.com" required></li>
-        <li><label for="password">Password</label>
-        <input type="password" name="password" placeholder="password" required></li>
-        <li>
+		<label for="usermail">Email   <input type="email" name="usermail" placeholder="yourname@email.com" required></li></label>
+        <br>
+		<label for="password">Password   <input type="password" name="password" placeholder="password" required></li></label>
+        
+		<br>
         <input type="submit" value="Login"></li>
     </ul>
 </form>
-</section>
+	</div>
+	
+	<div id="tasks">
+	<div class="task-card">
+	  <h2>About us</h2>
+	  <hr>
+	  <p></p>
+	</div>
+</div>
+</div>
 
 
+
+
+<div id="tasks">
+	<div class="task-card">
+	  <h2>What is Todoer</h2>
+	  <hr>
+	  <p>This is a (Very) simple Todo list making application that uses Material Design.
+Mainly being used as a test bed for making use of new material design with the aim of becoming a very useful and feature rich Todo app built from the ground up for </p>
+	<span><a href="#/about/">Raed More</a></span>
+	</div>
+	<br>
+
+</div>
+
+
+<div id="tasks">
+	<div class="task-card">
+	  <h2>Developers</h2>
+	  <hr>
+	  <p>Milindu Sanoj</p>
+	  <span class = "developer_rotation developer"><img src="../app/images/Slider5.jpg" width="50" height="35" alt="" border="0"> </span>
+	</div>
+</div>
 
 </body>
 </html>

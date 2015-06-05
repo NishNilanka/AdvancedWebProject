@@ -1,4 +1,7 @@
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
 'use strict';
+
 
 angular.module('Todoer')
   .controller('MainCtrl', function ($scope) {
@@ -28,14 +31,20 @@ if (x==null || x=="")
   alert("Please fill out the username");
   return false;
   }
+  
+else{
+	 var un = document.forms["login"]["username"].value;
+        var pw = document.forms["login"]["password"].value;
+        var username = "username"; 
+        var password = "password";
+        if ((un == username) && (pw == password)) {
+            return true;
+        }
+        else {
+            alert ("Login was unsuccessful, please check your username and password");
+            return false;
+        }
+}
 }
 
-  function render() {
-    gapi.signin.render('customBtn', {
-      //'callback': 'signinCallback',
-      'clientid': '841077041629.apps.googleusercontent.com',
-      'cookiepolicy': 'single_host_origin',
-      'requestvisibleactions': 'http://schema.org/AddAction',
-      'scope': 'https://www.googleapis.com/auth/plus.login'
-    });
-  }
+
