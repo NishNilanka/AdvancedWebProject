@@ -14,8 +14,10 @@
   </head>
   <body>
 This is search...
-<div class="search-card">
- <input type="text"/>
+<div class="search-card" ng-controller="searchCtrl">
+ <input type="text" ng-model="sr"  />
+ 
+ {{result()}}
 </div> 
   </body>
 </html>
