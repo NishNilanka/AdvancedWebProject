@@ -74,7 +74,8 @@
                 $scope.task1Item = (localStorage.getItem('task1Items') !== null) ?
                         JSON.parse($scope.saved) : [{title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, done: false}];
                 localStorage.setItem('task1Items', JSON.stringify($scope.task1Item));
-                $scope.newTask = null;
+                $scope.id = null;
+				$scope.newTask = null;
                 $scope.newTaskDesc = null;
                 $scope.newTaskDate = null;
                 $scope.categories = [
@@ -88,6 +89,7 @@
                 $scope.addNew = function() {
                     if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
                         $scope.task1Item.push({
+							id: 1,
                             title: $scope.newTask,
                             description: $scope.newTaskDesc,
                             date: "No deadline",
@@ -96,6 +98,7 @@
                         })
                     } else {
                         $scope.task1Item.push({
+						id: 1,
                             title: $scope.newTask,
                             description: $scope.newTaskDesc,
                             date: $scope.newTaskDate,
