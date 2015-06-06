@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('Todoer')
-  .controller('searchCtrl', function($scope)){
-      $scope.sr="NSH";
-    $scope.result= function(){
-	    return $scope.sr;
-  }
+  .controller('SearchCtrl', function(tasks, $scope){
+	  $scope.tasks = tasks;
+	  $scope.query = "";
+	  alert($scope.tasks);
   });
   
