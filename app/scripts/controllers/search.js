@@ -5,4 +5,3 @@ angular.module('Todoer')
 	  $scope.tasks = tasks;
 	  $scope.query = "";
   });
-  

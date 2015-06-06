@@ -1,7 +1,9 @@
 <section id="tasks" ng-controller="SearchCtrl">
-	<div class="search-card" >
-		<input type="text"  ng-model="query"/>
-	</div> 
+  <div id='container' class="search-card">  
+    <div class='cell'>
+		<input type='search' placeholder='Search' ng-model="query">
+	</div>
+  </div>
 	<article class="task-card fade" ng-repeat="task in tasks | filter:  query | orderBy : 'done'  " ng-class="{'done': task.done}">
 	  <header></header><h2>{{task.title}}</h2></header>
 	  <hr>
@@ -13,3 +15,16 @@
 	</article>
 </section>
 
+<br>
+<div id="slider">
+	<figure>
+		<img src="images/2.jpg" alt>
+		<img src="images/3.jpg" alt>
+		<img src="images/5.jpg" alt>
+		<img src="images/6.jpg" alt>
+		<img src="images/5.jpg" alt>
+	</figure>
+</div>
+<div>
+	<footer>W.W.N.M Fernando 12000469</footer>
+</div>
