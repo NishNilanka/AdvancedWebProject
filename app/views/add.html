@@ -1,4 +1,29 @@
 <style>
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 0;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.row {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+
+.half {
+    width: 50%;
+    float: left;
+}
+
+.content { background: #fff; }
 h1 {
     font-family: 'Rokkitt', sans-serif;
     color: #666;
@@ -333,7 +358,7 @@ footer a { color: #f39c12; }
                 $scope.today = new Date();
                 $scope.saved = localStorage.getItem('taskItems');
                 $scope.taskItem = (localStorage.getItem('taskItems') !== null) ?
-                        JSON.parse($scope.saved) : [{title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, complete: false}];
+                        JSON.parse($scope.saved) : [{id : 1, title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, complete: false}];
                 localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
 
                 $scope.newTask = null;
