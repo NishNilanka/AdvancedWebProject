@@ -1,12 +1,12 @@
-
 @media screen and (max-width: 1500px){
     body{
-        background: url(large.jpg) no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background: #25607D;
     }
+	
+	iframe{
+	 width="420";
+	 height="345";
+	}
 }
 
 @media screen and (max-width: 960px){
@@ -17,6 +17,11 @@
         -o-background-size: cover;
         background-size: cover;
     }
+	
+	iframe{
+	 width="420";
+	 height="345";
+	}
 }
 
 @media screen and (max-width: 480px){
@@ -27,4 +32,9 @@
         -o-background-size: cover;
         background-size: cover;
     }
+	
+	iframe{
+	 width="120";
+	 height="75";
+	}
 }
