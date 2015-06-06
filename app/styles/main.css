@@ -186,12 +186,14 @@ body {
   padding: 0;
   margin: 0;
   padding-top: 48px;
+  
 }
 
 .body {
   margin: 0 auto;
   width: 70%;
   clear: both;
+  
 }
 
 
@@ -508,4 +510,17 @@ html[xmlns] .clearfix { display: block; }
     margin-right: 20px;
     color: #777;
     pointer-events: none;
+}
+
+
+.photos li 
+{
+    float: left;
+    display: block;
+    position: relative;
+    list-style-type: none;    
+    margin: 10px; 
+    border: 5px solid #EEEEEE;
+    height: 100px;
+    width: 100px;
 }

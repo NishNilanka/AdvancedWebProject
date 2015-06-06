@@ -50,40 +50,10 @@ else{
 }
 
 
-var rev = "fwd";
-function titlebar(val){
-    var msg  = "Todoer";
-    var res = "";
-    var speed = 100;
-    var pos = val;  
-    var le = msg.length;
-    if(rev == "fwd"){ 
-        if(pos < le){ 
-            pos = pos+1; 
-            scroll = msg.substr(0,pos); 
-            document.title = scroll; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        } else { 
-            rev = "bwd"; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        }
-    } else { 
-        if(pos > 0) {
-            pos = pos-1; 
-            var ale = le-pos; 
-            scrol = msg.substr(ale,le); 
-            document.title = scrol; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        } else { 
-            rev = "fwd"; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        }
-    }
-}
-titlebar(0);
+
 
 var imageCount = 1;
-var total = 6;
+var total = 5;
 
 function photo(x) {
 	var image = document.getElementById('image');
@@ -109,3 +79,15 @@ var time = window.setInterval(function photoA() {    // just addign the sunction
 	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
 	},2000);
 
+$(document).ready(function() {
+
+	$('.photos img').css('opacity', 0.4);
+	$('.photos li').hover(
+	  function(){
+		$(this).find('img').stop().fadeTo('slow', 1);
+	  },
+	  function(){
+		$(this).find('img').stop().fadeTo('slow', 0.4);
+	  });
+
+});
