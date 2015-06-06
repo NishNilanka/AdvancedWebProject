@@ -1,7 +1,7 @@
 'use strict';
 var X;
 
-angular.module('Todoer')
+angular.module('Todoer')	
   .controller('TasksCtrl', function (tasks, $scope, cfpLoadingBar) {
 		$scope.tasks = tasks;
 		X = $scope.tasks;
