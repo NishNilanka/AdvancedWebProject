@@ -316,6 +316,9 @@ html[xmlns] .clearfix { display: block; }
   font-size: 18px;
   padding: 0 3px;
 }
+.navbar a:hover {
+  color: #C0D392;
+}
 .task-card{
   border: 1px solid #CACACA;
   background: #fff;
