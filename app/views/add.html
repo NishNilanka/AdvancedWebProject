@@ -72,7 +72,7 @@
                 $scope.today = new Date();
                 $scope.saved = localStorage.getItem('task1Items');
                 $scope.task1Item = (localStorage.getItem('task1Items') !== null) ?
-                        JSON.parse($scope.saved) : [{title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, done: false}];
+                        JSON.parse($scope.saved) : [{id: 1, title: "Advanced Web Assignment", description: "Finalize the website, write the report and submit before the deadline", date: $scope.today, done: false}];
                 localStorage.setItem('task1Items', JSON.stringify($scope.task1Item));
                 $scope.id = null;
 				$scope.newTask = null;
