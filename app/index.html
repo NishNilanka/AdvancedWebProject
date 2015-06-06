@@ -21,8 +21,8 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+    <header id="main" class="header">
+      <nav class="navbar navbar-default" role="navigation">
 		 <div class="navbar-header">
 		   <a class="navbar-brand" href="#/">Todoer</a>
 		   <ul class="sub-menu">
@@ -40,8 +40,8 @@
 			 <li><a ng-href="#/tasks/" href="#/tasks/">Today</a></li>
 		  </ul>
 		 </div>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <div class="container main">
     <div ng-view=""></div>
@@ -86,6 +86,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/tasks.js"></script>
+        <script src="scripts/controllers/search.js"></script>
         <!-- endbuild -->
 </body>
 </html>

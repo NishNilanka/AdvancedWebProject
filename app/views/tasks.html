@@ -1,10 +1,13 @@
-<div id="tasks">
-	<div class="task-card fade" ng-repeat="task in tasks | orderBy : 'done' " ng-class="{'done': task.done}">
-	  <h2>{{task.title}}</h2>
+<section id="tasks">
+	<article class="task-card fade" ng-repeat="task in tasks | orderBy : 'done' " ng-class="{'done': task.done}">
+	  <header></header><h2>{{task.title}}</h2></header>
 	  <hr>
 	  <p>{{task.description}}</p>
-	  <span class="edit-button" ng-click="edit(task.id)"><i class="fa fa-pencil"></i></span>
-	  <span class="close-button" ng-click="markDone(task.id)"><i class="fa fa-check"></i></span>
-	</div>
-</div>
+	  <footer>
+		<span class="edit-button" ng-click="edit(task.id)"><i class="fa fa-pencil"></i></span>
+		<span class="close-button" ng-click="markDone(task.id)"><i class="fa fa-check"></i></span>
+	  </footer>
+	</article>
+</section>
+<canvas class="footer animation canvas"></canvas>
 
