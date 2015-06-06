@@ -19,7 +19,31 @@ body {
 
 
 
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 0;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
 
+.row {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+
+.half {
+    width: 50%;
+    float: left;
+}
+
+.content { background: #fff; }
 
 h1 {
     font-family: 'Rokkitt', sans-serif;
@@ -148,26 +172,26 @@ button {
     font-size: 20px;
 }
 
-.taskAdd {
+.task1Add {
     background: #444;
     padding-left: 15px;
 }
 
-.taskAdd:hover { background: #303030; }
+.task1Add:hover { background: #303030; }
 
-.taskDelete {
+.task1Delete {
     background: #436C96;
     padding-left: 30px;
 }
 
-.taskDelete:hover { background: #28415A; }
+.task1Delete:hover { background: #28415A; }
 
-.taskList {
+.task1List {
     list-style: none;
     padding: 0 20px;
 }
 
-.taskItem {
+.task1Item {
     border-top: 1px solid #e5e5e5;
     padding: 15px 0;
     color: #777;
@@ -176,16 +200,16 @@ button {
     letter-spacing: 0.5px;
 }
 
-.taskList .taskItem:nth-child(even) { background: #fcfcfc; }
+.task1List .task1Item:nth-child(even) { background: #fcfcfc; }
 
-.taskCheckbox { margin-right: 1em; }
+.task1Checkbox { margin-right: 1em; }
 
-.complete-true {
+.done-true {
     text-decoration: line-through;
     color: #bebebe;
 }
 
-.taskList .taskDate {
+.task1List .task1Date {
     color: #95a5a6;
     font-size: 10px;
     font-weight: bold;
@@ -238,7 +262,7 @@ footer a { color: #f39c12; }
 
 /* custom checkboxes */
 
-.taskCheckbox {
+.task1Checkbox {
     -webkit-appearance: none;
     appearance: none;
     -webkit-transition: all 0.3s;
@@ -250,10 +274,10 @@ footer a { color: #f39c12; }
     vertical-align: middle;
 }
 
-.taskCheckbox:focus { outline: none; }
+.task1Checkbox:focus { outline: none; }
 
-.taskCheckbox:before,
-.taskCheckbox:checked:before {
+.task1Checkbox:before,
+.task1Checkbox:checked:before {
     font-family: 'FontAwesome';
     color: #444;
     font-size: 20px;
@@ -261,15 +285,15 @@ footer a { color: #f39c12; }
     transition: all 0.3s;
 }
 
-.taskCheckbox:before { content: '\f096'; }
+.task1Checkbox:before { content: '\f096'; }
 
-.taskCheckbox:checked:before {
+.task1Checkbox:checked:before {
     content: '\f14a';
     color: #16a085;
 }
 
 
-.taskCategory {
+.task1Category {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
@@ -287,7 +311,7 @@ footer a { color: #f39c12; }
     pointer-events: none;
 }
 
-.taskCategory option {
+.task1Category option {
     background: #fff;
     border: none;
     outline: none;

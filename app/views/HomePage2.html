@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Todo Home</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style2.css"/>
+        <link rel="stylesheet" type="text/css" href="css/media-queries2.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            var can, ctx, step, steps = 0,
+                    delay = 10;
+
+            function init() {
+                can = document.getElementById("footer");
+                ctx = can.getContext("2d");
+                ctx.fillStyle = "blue";
+                ctx.font = "20pt Verdana";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                step = 0;
+                steps = can.width + 50;
+                RunTextLeftToRight();
+            }
+
+            function RunTextLeftToRight() {
+                step++;
+                ctx.clearRect(0, 0, can.width, can.height);
+                ctx.save();
+                ctx.translate(step, can.height / 2);
+                ctx.fillText("M.F.Jaleel  12000622  Group:Y", 0, 0);
+                ctx.restore();
+                if (step == steps)
+                    step = 0;
+                if (step < steps)
+                    var t = setTimeout('RunTextLeftToRight()', delay);
+            }
+        </script>
+    </head>
+    <body onload="init();">
+        <div id="container">
+            <div id="title">
+                <h1>Hello ToDo...</h1>
+            </div>
+            <div>
+                <ul class="nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Add ToDo</a></li>
+                    <li><a href="#">Delete Todo</a></li>
+                    <li><a href="#">Why ToDo</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div id="article">
+                <p>In order to truly benefit from using a to-do list management app, you must commit to using it on an ongoing basis and get into the habit of entering all your to-do items into the app and then referring to the app as needed throughout your day, everyday.</p>
+                <p>Creating and managing to-do lists on your iPhone or iPad has several distinct benefits, including the following:</p>
+                <ul>
+                    <li>All your to-do items can be stored in one place, so you can have your lists with you anytime and anywhere. After all, you probably keep your Apple mobile device with you throughout the workday.</li>
+                    <li>You can consolidate dozens of separate scrap papers or Post-It Notes into one well-organized list, without worrying about misplacing any important information, while at the same time remove clutter from your desk or workspace.</li>
+                    <li>Using any of these to-do list apps, you can easily prioritize your tasks, associate deadlines with them, plus set audible or text-based alarms to acts as reminders throughout your day.</li>
+                    <li>As needed, to-do items can be imported easily into your calendar and added into your daily, weekly, or monthly schedule.</li>
+                    <li>Each of the to-do list apps allows you to visually view your lists using an intuitive but unique graphic interface, so you can color-code lists or individual items, plus view them in a variety of familiar formats on your iPhone or iPad screen.</li>
+                </ul>
+            </div>
+            <aside id="side-bar">
+                <h1>Why to use a ToDo app?</h1> 
+                <iframe src="https://www.youtube.com/embed/fjjKuoeYP5A" frameborder="0" allowfullscreen></iframe>
+
+            </aside>
+            <footer class="footer">
+                <canvas id="footer" width="900" height="50">
+                    <p>M.F.Jaleel  12000622  Group:Y</p>
+                </canvas>
+            </footer>
+        </div>
+    </body>
+
+</html>
