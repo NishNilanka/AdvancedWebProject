@@ -38,10 +38,12 @@ else{
         var username = "username"; 
         var password = "password";
         if ((un == username) && (pw == password)) {
+		window.alert(5 + 6);
             return true;
         }
         else {
             alert ("Login was unsuccessful, please check your username and password");
+			window.alert(1);
             return false;
         }
 }
@@ -79,3 +81,31 @@ function titlebar(val){
     }
 }
 titlebar(0);
+
+var imageCount = 1;
+var total = 6;
+
+function photo(x) {
+	var image = document.getElementById('image');
+	imageCount = imageCount + x;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	clearInterval(time); 								// clear interval stops the set interval.
+	time =  window.setInterval(function photoA() { 		// givig the value of time the samfunction below starts the loop 
+	var image = document.getElementById('image');
+	imageCount = imageCount + 1;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	},2000);
+	}
+ 
+var time = window.setInterval(function photoA() {    // just addign the sunction to the variable so you can target it.
+	var image = document.getElementById('image');
+	imageCount = imageCount + 1;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	},2000);
+
