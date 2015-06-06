@@ -76,7 +76,7 @@ var time = window.setInterval(function photoA() {    // just addign the sunction
 	imageCount = imageCount + 1;
 	if(imageCount > total){imageCount = 1;}
 	if(imageCount < 1){imageCount = total;}	
-	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	image.src = "images/Slider/img"+ imageCount +".jpg";
 	},2000);
 
 $(document).ready(function() {
