@@ -38,44 +38,56 @@ else{
         var username = "username"; 
         var password = "password";
         if ((un == username) && (pw == password)) {
+		window.alert(5 + 6);
             return true;
         }
         else {
             alert ("Login was unsuccessful, please check your username and password");
+			window.alert(1);
             return false;
         }
 }
 }
 
 
-var rev = "fwd";
-function titlebar(val){
-    var msg  = "Todoer";
-    var res = "";
-    var speed = 100;
-    var pos = val;  
-    var le = msg.length;
-    if(rev == "fwd"){ 
-        if(pos < le){ 
-            pos = pos+1; 
-            scroll = msg.substr(0,pos); 
-            document.title = scroll; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        } else { 
-            rev = "bwd"; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        }
-    } else { 
-        if(pos > 0) {
-            pos = pos-1; 
-            var ale = le-pos; 
-            scrol = msg.substr(ale,le); 
-            document.title = scrol; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        } else { 
-            rev = "fwd"; 
-            timer = window.setTimeout("titlebar("+pos+")",speed); 
-        }
-    }
-}
-titlebar(0);
+
+
+var imageCount = 1;
+var total = 5;
+
+function photo(x) {
+	var image = document.getElementById('image');
+	imageCount = imageCount + x;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	clearInterval(time); 								// clear interval stops the set interval.
+	time =  window.setInterval(function photoA() { 		// givig the value of time the samfunction below starts the loop 
+	var image = document.getElementById('image');
+	imageCount = imageCount + 1;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	},2000);
+	}
+ 
+var time = window.setInterval(function photoA() {    // just addign the sunction to the variable so you can target it.
+	var image = document.getElementById('image');
+	imageCount = imageCount + 1;
+	if(imageCount > total){imageCount = 1;}
+	if(imageCount < 1){imageCount = total;}	
+	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	},2000);
+
+$(document).ready(function() {
+
+	$('.photos img').css('opacity', 0.4);
+	$('.photos li').hover(
+	  function(){
+		$(this).find('img').stop().fadeTo('slow', 1);
+	  },
+	  function(){
+		$(this).find('img').stop().fadeTo('slow', 0.4);
+	  });
+
+});
