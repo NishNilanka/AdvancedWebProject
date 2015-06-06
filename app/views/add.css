@@ -1,3 +1,50 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+		margin: 0;
+		padding: 0;
+	}
+	
+html { font-size: 100%; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+	background: #25607D;
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 0;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.row {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+
+.half {
+    width: 50%;
+    float: left;
+}
+
+.content { background: #fff; }
+
 h1 {
     font-family: 'Rokkitt', sans-serif;
     color: #666;
