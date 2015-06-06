@@ -3,7 +3,15 @@ var X;
 
 angular.module('Todoer')	
   .controller('TasksCtrl', function (tasks, $scope, cfpLoadingBar) {
-		$scope.tasks = tasks;
+		
+		if(localStorage.getItem('taskItems')){
+			$scope.tasks = jQuery.parseJSON(localStorage.getItem('taskItems'));
+		}
+		else{
+			$scope.tasks = tasks;
+			localStorage.setItem('taskItems', JSON.stringify(tasks) );
+		}
+		
 		X = $scope.tasks;
 		$scope.markDone = function(id){
 			    //ngProgress.start();
@@ -17,6 +25,7 @@ angular.module('Todoer')
 				}
 				console.log($scope.tasks);
 				//ngProgress.complete();
+				localStorage.setItem('taskItems', JSON.stringify(tasks) );
 				cfpLoadingBar.complete();
 		}
 	
