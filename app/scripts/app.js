@@ -9,12 +9,8 @@
 angular
   .module('Todoer', [
     'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
     'ngResource',
     'ngRoute',
-    'ngSanitize',
     'ngTouch',
     'cfp.loadingBar'
   ])

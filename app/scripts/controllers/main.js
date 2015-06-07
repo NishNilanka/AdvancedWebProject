@@ -76,7 +76,7 @@ var time = window.setInterval(function photoA() {    // just addign the sunction
 	imageCount = imageCount + 1;
 	if(imageCount > total){imageCount = 1;}
 	if(imageCount < 1){imageCount = total;}	
-	image.src = "../app/images/Slider/img"+ imageCount +".jpg";
+	image.src = "images/Slider/img"+ imageCount +".jpg";
 	},2000);
 
 $(document).ready(function() {
@@ -91,6 +91,7 @@ $(document).ready(function() {
 	  });
 
 });
+<<<<<<< HEAD
 
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -99,3 +100,5 @@ $(document).ready(function() {
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+=======
+>>>>>>> 638ae82784011495a01d3c99d74e6cb632b29868

@@ -93,17 +93,15 @@ html {
 }
 
 .developer_rotation{
-    width: 300px;
-    height: 300px;
-    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
-    transition: width 2s, height 2s, transform 2s
+  transition: 2s;
+  display: inline-block;
+  margin: 20px;
 
-     }
+}
+.developer_rotation img{
+  border: 3px solid #A0B5EA;
+}
 .developer_rotation:hover{
-    width: 450px;
-    height: 450px;
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
    transform: scale(1.5);
 }
 
@@ -317,6 +315,9 @@ html[xmlns] .clearfix { display: block; }
   text-decoration: none;
   font-size: 18px;
   padding: 0 3px;
+}
+.navbar a:hover {
+  color: #C0D392;
 }
 .task-card{
   border: 1px solid #CACACA;
