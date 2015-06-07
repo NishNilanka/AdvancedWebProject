@@ -607,21 +607,17 @@ div.button {
 
 
 
-div#slider { margin:0 auto ; width: 90%; max-width: 400px;}
+div#slider { margin:0 auto ; width: 100%; max-width: 650px;}
 
 
 
 div#slider figure {
 
-position: relative; width: 500%;
+position: absolute; width: 100%;
 
 margin: 0; padding: 0; font-size: 0; text-align: left;
 
 }
-
-div#slider figure img { width: 20%; height: auto; }
-
-div#slider { width: 60%; height: 20%; max-width: 1000px; overflow: hidden }
 
 
 
