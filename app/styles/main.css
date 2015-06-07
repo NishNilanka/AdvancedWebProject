@@ -319,6 +319,48 @@ html[xmlns] .clearfix { display: block; }
 .navbar a:hover {
   color: #C0D392;
 }
+
+.fbpage {
+    padding: 10px 2%;    
+    display: inline-block;
+    width: 100%;
+    max-width: 60px; 
+    cursor: pointer;
+    vertical-align: top;
+    position: relative;
+    opacity:1;
+    -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  float: right;
+ }
+ 
+ .blinking{
+    -webkit-animation: blink 2s infinite;
+    -moz-animation: blink 2s infinite;    
+    animation: blink 2s infinite;
+}
+
+
+@-webkit-keyframes blink{
+
+    0%{ opacity:0;}
+    100%{opacity:1;}
+}
+
+@-moz-keyframes blink{
+    
+    0%{ opacity:0;}
+    100%{opacity:1;}
+
+}
+        
+@keyframes blink{
+
+    0%{ opacity:0;}
+    100%{opacity:1;}
+
+}
+ 
 .task-card{
   border: 1px solid #CACACA;
   background: #fff;
@@ -678,3 +720,5 @@ margin: 0; padding: 0; font-size: 0; left: 0; text-align: left;
 animation: 30s slidy infinite;
 
 }
+
+
